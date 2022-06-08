@@ -92,24 +92,24 @@
                 {
                     Version = "v1",
                     Title = "TariffComparison.WebUI",
-                    Description = "This is a solution template for Clean Architecture implementation with ASP.NET Core Web Api",
+                    Description = "TariffComparison system implement with ASP.NET Core Web Api",
                     Contact = new OpenApiContact
                     {
                         Name = "Omid Ahmadpour",
                         Email = "ahmadpooromid@gmail.com",
-                        Url = new Uri("https://github.com/omidah"),
+                        Url = new Uri("https://github.com/omid-ahmadpour"),
                     },
                 });
                 options.SwaggerDoc("v2", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "TariffComparison.WebUI",
-                    Description = "This is a solution template for Clean Architecture implementation with ASP.NET Core Web Api",
+                    Description = "TariffComparison system implement with ASP.NET Core Web Api",
                     Contact = new OpenApiContact
                     {
                         Name = "Omid Ahmadpour",
                         Email = "ahmadpooromid@gmail.com",
-                        Url = new Uri("https://github.com/omidah"),
+                        Url = new Uri("https://github.com/omid-ahmadpour"),
                     },
                 });
 
