@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TariffComparison.Application.Products.Query.GetProducts;
+using TariffComparison.Common.Utilities;
 using TariffComparison.Domain.Entities.Products;
 using TariffComparison.Persistance.Db;
 
@@ -22,6 +23,8 @@ namespace TariffComparison.Persistance.QueryHandlers.Products
 
         public async Task<IEnumerable<ProductQueryModel>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
+            GuardClauses.IsNotNull(request, nameof(request));
+
             var products = await _dbContext.Set<Product>()
                 .OrderBy(field => field.Id)
                 .Skip((request.PageNumber - 1) * request.PageSize)

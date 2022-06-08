@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TariffComparison.Application;
 using TariffComparison.Application.Products.Command.CreateProduct;
-using TariffComparison.Common.Exceptions;
+using TariffComparison.Common.Utilities;
 using TariffComparison.Domain.Entities.Products;
 using TariffComparison.Persistance.Db;
 
@@ -28,8 +28,7 @@ namespace TariffComparison.Persistance.CommandHandlers.Products
 
         public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            if (request is null)
-                throw new InvalidNullInputException(nameof(request));
+            GuardClauses.IsNotNull(request, nameof(request));
 
             var products = _tariffComparisonerFactory.Execute(request.Consumption);
 
