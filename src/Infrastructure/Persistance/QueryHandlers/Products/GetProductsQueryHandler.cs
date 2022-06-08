@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using TariffComparison.Application.Products.Query.GetProductById;
+using TariffComparison.Application.Products.Query.GetProducts;
 using TariffComparison.Domain.Entities.Products;
 using TariffComparison.Persistance.Db;
 

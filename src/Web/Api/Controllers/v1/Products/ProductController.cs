@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using TariffComparison.Api.Controllers.v1.Products.Requests;
 using TariffComparison.ApiFramework.Tools;
 using TariffComparison.Application.Products.Command.CreateProduct;
-using TariffComparison.Application.Products.Query.GetProductById;
+using TariffComparison.Application.Products.Query.GetProducts;
 
 namespace TariffComparison.Api.Controllers.v1.Products
 {
@@ -19,15 +19,16 @@ namespace TariffComparison.Api.Controllers.v1.Products
             var command = Mapper.Map<CreateProductCommand>(request);
 
             var result = await Mediator.Send(command);
-
             return new ApiResult<int>(result);
         }
 
         [HttpGet("list")]
         [SwaggerOperation("get all products")]
-        public async Task<ApiResult<IEnumerable<ProductQueryModel>>> GetAllsync([FromQuery] int pageSize, int pageNumber)
+        public async Task<ApiResult<IEnumerable<ProductQueryModel>>> GetAllsync([FromQuery] GetProductsRequest request)
         {
-            var result = await Mediator.Send(new GetProductsQuery() { PageSize = pageSize, PageNumber = pageNumber });
+            var query = Mapper.Map<GetProductsQuery>(request);
+
+            var result = await Mediator.Send(query);
             return new ApiResult<IEnumerable<ProductQueryModel>>(result);
         }
     }

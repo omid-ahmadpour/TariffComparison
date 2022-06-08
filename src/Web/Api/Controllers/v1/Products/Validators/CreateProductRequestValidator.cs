@@ -8,7 +8,7 @@ namespace TariffComparison.Api.Controllers.v1.Products.Validators
         public CreateProductRequestValidator()
         {
             RuleFor(x => x.Consumption)
-                .NotNull().GreaterThan(0).WithMessage("{PropertyName} is not valid");
+                .GreaterThan(0).WithMessage("{PropertyName} is not valid");
         }
     }
 }

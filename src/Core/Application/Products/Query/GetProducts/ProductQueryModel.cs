@@ -1,4 +1,4 @@
-﻿namespace TariffComparison.Application.Products.Query.GetProductById
+﻿namespace TariffComparison.Application.Products.Query.GetProducts
 {
     public class ProductQueryModel
     {
