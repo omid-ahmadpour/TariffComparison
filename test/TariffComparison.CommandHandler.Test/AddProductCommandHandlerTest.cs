@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using TariffComparison.Application.Products.Command.CreateProduct;
+using TariffComparison.Application;
 
 namespace TariffComparison.CommandHandler.Test
 {
@@ -17,13 +18,13 @@ namespace TariffComparison.CommandHandler.Test
         {
             var dbContext = new Mock<AppWriteDbContext>();
             var logger = new Mock<ILogger<CreateProductCommandHandler>>();
+            var factory = new Mock<ITariffComparisonerFactory>();
 
-            //var commandHandler = new CreateProductCommandHandler(dbContext.Object, logger.Object);
+            var commandHandler = new CreateProductCommandHandler(dbContext.Object, logger.Object, factory.Object);
 
             var request = new Mock<CreateProductCommand>();
 
-            //await Assert.ThrowsAsync<InvalidNullInputException>(() => commandHandler.Handle(request.Object, CancellationToken.None));
-            //await Assert.ThrowsAsync<InvalidNullInputException>(() => commandHandler.Handle(null, CancellationToken.None));
+            await Assert.ThrowsAsync<InvalidNullInputException>(() => commandHandler.Handle(null, CancellationToken.None));
         }
     }
 }
